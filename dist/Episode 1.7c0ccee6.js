@@ -23,11 +23,9 @@ const heading = React.createElement("div", {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 console.log(typeof root); //Object
 console.log(root); //Object
-root.render(heading);
-// Using Js DOM manipulation
-// let heading2 = document.createElement("h1");
-// heading2.innerHTML = "I am from Js DOM maipulation";
-// document.getElementById("root").appendChild(heading2);
-hellos;
+root.render(heading); // Using Js DOM manipulation
+ // let heading2 = document.createElement("h1");
+ // heading2.innerHTML = "I am from Js DOM maipulation";
+ // document.getElementById("root").appendChild(heading2);
 
 //# sourceMappingURL=Episode 1.7c0ccee6.js.map
