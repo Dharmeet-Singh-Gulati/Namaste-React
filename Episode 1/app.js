@@ -1,5 +1,6 @@
 // Using React
-
+import React from "react";
+import ReactDOM from "react-dom/client";
 // first hello world
 
 // const heading = React.createElement("h1", { class: "first" }, "Hello World!!");
@@ -7,12 +8,20 @@
 // root.render(heading);
 
 //nested structure
-const heading = React.createElement("div", { class: "parent" }, [
-  React.createElement("div", { class: "child" }, "I am a child 1"),
-  React.createElement("div", { class: "child" }, "I am a child 2"),
-  React.createElement("div", { class: "child" }, [
-    React.createElement("h1", {}, "I am the Grand child H1"),
-    React.createElement("h2", {}, "I am the Grand child H2"),
+const heading = React.createElement("div", { className: "parent" }, [
+  React.createElement(
+    "div",
+    { className: "child", key: "c1" },
+    "I am a child 1"
+  ),
+  React.createElement(
+    "div",
+    { className: "child", key: "c2" },
+    "I am a child 2"
+  ),
+  React.createElement("div", { className: "child", key: "c3" }, [
+    React.createElement("h1", { key: "h1" }, "I am grandchild H1"),
+    React.createElement("h2", { key: "h2" }, "I am grandchild H2"),
   ]),
 ]);
 
