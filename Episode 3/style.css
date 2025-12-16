@@ -1,0 +1,20 @@
+* {
+  background-color: #ddd;
+}
+
+.child {
+  color: blueviolet;
+}
+
+.child > h1,
+h2 {
+  color: green;
+}
+
+#heading {
+  color: red;
+}
+
+.first {
+  color: green;
+}
