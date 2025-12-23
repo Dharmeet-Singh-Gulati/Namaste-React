@@ -23,15 +23,21 @@ root.render(<HeadingComponent />); //this function will be called here to conver
 
 import hands from "./assets/handsFolded.jpg";
 
+let ele = <h3>This is a Element</h3>;
+
 const ImageLogo = () => {
-  return <img src={hands.default} alt="This is the logo for namaste react" />;
+  return (
+    <>
+      <img src={hands.default} alt="This is the logo for namaste react" /> {ele}
+    </>
+  );
 };
 
 const Logo = () => {
   return (
     <div>
       <h1>This is a logo</h1>
-      <ImageLogo />
+      {ImageLogo()}
     </div>
   );
 };
