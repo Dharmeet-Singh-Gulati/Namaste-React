@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import "./Assignment.css";
 import user from "./assets/images/user.jpg";
 import logo from "./assets/images/leftLogo.jpg";
@@ -58,7 +58,7 @@ let header = React.createElement("div", { className: "title" }, [
   React.createElement("h3", { key: 3 }, "Namaste React 😎"),
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root"));
 
 let headerJSX = (
   <div>
