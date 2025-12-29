@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "This is Episode 3 of Namaste React starting on 16 dec 2025",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
