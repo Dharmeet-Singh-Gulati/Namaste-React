@@ -1,29 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./assignment.css";
-import resList from "./utils/mockObj";
-
-const LOGO = new URL("./assets/logo.jpg", import.meta.url);
-const VEGSYMBOL = new URL("./assets/veg_symbol.png", import.meta.url);
-
-const Header = () => {
-  return (
-    <div className="header-container">
-      <div className="logo-container">
-        <img className="logo" src={LOGO.href} />
-      </div>
-      <div className="nav-items-container">
-        <ul className="nav-items">
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
+import {VEG_SYMBOL_URL} from "../utils/constants";
+import { CDN_URL } from "../utils/constants";
+const VEGSYMBOL = VEG_SYMBOL_URL;
 const ResCard = (props) => {
   const { resData } = props;
   const { name: mealName, price: mealPrice } = resData.card.card.info;
@@ -89,11 +66,11 @@ const ResCard = (props) => {
                 className="res-logo"
                 alt="res-logo"
                 src={
-                  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
+                  CDN_URL +
                   imageId
                 }
               ></img>
-
+              
               <h2 className="add-btn">Add</h2>
             </div>
           </div>
@@ -104,28 +81,4 @@ const ResCard = (props) => {
   );
 };
 
-const Body = () => {
-  return (
-    <div className="body-container">
-      <div className="search">Search</div>
-      <div className="crad-container">
-        {resList.map((resObj) => {
-          return <ResCard key={resObj.card.card.info.id}  resData={resObj} />;
-        })}
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <div className="app-layout">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
+export default ResCard;
