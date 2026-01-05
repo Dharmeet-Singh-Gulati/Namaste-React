@@ -92,6 +92,11 @@ body {
   margin-bottom: 20px;
 }
 
+.filter-btn {
+  padding: 4px;
+  margin: 10px;
+}
+
 /* card container */
 .crad-container {
   display: flex;
@@ -173,8 +178,8 @@ body {
 /* res card lower section */
 
 .lower-section {
-  display: flex; 
-  padding-left: 5px; 
+  display: flex;
+  padding-left: 5px;
 }
 
 .lower-left {
