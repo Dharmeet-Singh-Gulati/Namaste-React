@@ -84,6 +84,11 @@ body {
   width: 100%;
 }
 
+.login-btn {
+  margin-right: 20px;
+  padding: 0 30px;
+}
+
 .body-container {
   margin: 20px;
 }
@@ -93,6 +98,11 @@ body {
 }
 
 .filter-btn {
+  padding: 4px;
+  margin: 10px;
+}
+
+.reset-btn {
   padding: 4px;
   margin: 10px;
 }
