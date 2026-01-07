@@ -12,14 +12,16 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/search/v3?lat=28.65420&lng=77.23730&str=Burger&trackingId=30bc26f7-2fbe-70e5-a9b5-4a8aa938c89f&submitAction=ENTER&queryUniqueId=4cb869c2-ac06-e0c4-4eb9-6915a405c46b"
     );
     res = await res.json();
-    console.log(res?.data?.cards[1]?.groupedCard?.cardGroupMap?.DISH?.cards);
+    console.log(
+      res?.data?.cards[1]?.groupedCard?.cardGroupMap?.DISH?.cards.slice(1)
+    );
     setListOfRestraunts(
-      res?.data?.cards[1]?.groupedCard?.cardGroupMap?.DISH?.cards
+      (res?.data?.cards[1]?.groupedCard?.cardGroupMap?.DISH?.cards).slice(1)
     );
   }
 
   if (listOfRestraunts.length === 0) {
-    return <h1> Loading..... </h1>;
+    return <h1> Loading..... {console.log("i am done")}</h1>;
   }
 
   return (
@@ -49,7 +51,9 @@ const Body = () => {
       </div>
       <div className="crad-container">
         {listOfRestraunts.map((resObj) => {
-          return <ResCard key={resObj?.card?.card?.info?.id} resData={resObj} />;
+          return (
+            <ResCard key={resObj?.card?.card?.info?.id} resData={resObj} />
+          );
         })}
       </div>
     </div>
