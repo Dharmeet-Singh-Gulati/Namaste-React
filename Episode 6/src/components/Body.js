@@ -2,7 +2,9 @@ import ResCard from "./RestrauntCard";
 import { useEffect, useState } from "react";
 
 const Body = () => {
-  let [listOfRestraunts, setListOfRestraunts] = useState([]);
+  const [listOfRestraunts, setListOfRestraunts] = useState([]);
+  const [searchText, setSearchText] = useState("Oye Happy!!");
+  const [fiilterList, setFilterList] = useState([]);
   useEffect(() => {
     fetchData();
   }, []);
@@ -18,23 +20,50 @@ const Body = () => {
     setListOfRestraunts(
       (res?.data?.cards[1]?.groupedCard?.cardGroupMap?.DISH?.cards).slice(1)
     );
+    setFilterList(
+      (res?.data?.cards[1]?.groupedCard?.cardGroupMap?.DISH?.cards).slice(1)
+    );
   }
 
   if (listOfRestraunts.length === 0) {
-    return <h1> Loading..... {console.log("i am done")}</h1>;
+    return <h1> Loading.....</h1>;
   }
 
   return (
     <div className="body-container">
       <div className="search">Search</div>
       <div className="filter">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault(); // page reload stop
+            let filteredList = listOfRestraunts.filter((resObj) =>
+              resObj.card.card.info.name
+                .toLowerCase()
+                .includes(searchText.toLowerCase())
+            );
+            setFilterList(filteredList);
+          }}
+        >
+          <input
+            className="input-text"
+            type="text"
+            placeholder="Honey"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+
+          <button className="search-btn" type="submit">
+            Search
+          </button>
+        </form>
+
         <button
           className="filter-btn"
           onClick={() => {
-            let filterList = listOfRestraunts.filter((resObj) => {
+            let filteredList = listOfRestraunts.filter((resObj) => {
               return resObj?.card?.card?.restaurant?.info?.avgRating > 4.5;
             });
-            setListOfRestraunts(filterList);
+            setFilterList(filteredList);
           }}
         >
           Top reated restraunts
@@ -42,7 +71,8 @@ const Body = () => {
         <button
           className="reset-btn"
           onClick={() => {
-            fetchData();
+            setFilterList(listOfRestraunts);
+            setSearchText("");
             console.log("Reset Btn Called");
           }}
         >
@@ -50,7 +80,7 @@ const Body = () => {
         </button>
       </div>
       <div className="crad-container">
-        {listOfRestraunts.map((resObj) => {
+        {fiilterList.map((resObj) => {
           return (
             <ResCard key={resObj?.card?.card?.info?.id} resData={resObj} />
           );
