@@ -1,9 +1,10 @@
 import ResCard from "./RestrauntCard";
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listOfRestraunts, setListOfRestraunts] = useState([]);
-  const [searchText, setSearchText] = useState("Oye Happy!!");
+  const [searchText, setSearchText] = useState("");
   const [fiilterList, setFilterList] = useState([]);
   useEffect(() => {
     fetchData();
@@ -25,7 +26,7 @@ const Body = () => {
   }
 
   if (listOfRestraunts.length === 0) {
-    return <h1> Loading.....</h1>;
+    return <Shimmer />
   }
 
   return (

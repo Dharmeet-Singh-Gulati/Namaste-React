@@ -7,6 +7,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import Shimmer from "./components/Shimmer";
 
 const AppLayout = () => {
   return (
@@ -33,6 +34,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/shimmer",
+        element: <Shimmer />,
       },
     ],
     errorElement: <Error />,
