@@ -64,6 +64,11 @@ body {
   transition: color 0.25s ease;
 }
 
+.nav-items > li > a {
+  text-decoration: none;
+  color: #ffe8d6;
+}
+
 .nav-items > li::after {
   content: "";
   position: absolute;
