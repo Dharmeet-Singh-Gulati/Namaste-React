@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
+import RestrauntMenu from "./components/RestrauntMenu";
 
 const AppLayout = () => {
   return (
@@ -39,6 +40,10 @@ const appRouter = createBrowserRouter([
         path: "/shimmer",
         element: <Shimmer />,
       },
+      {
+        path:"/restraunts/:resid",
+        element:<RestrauntMenu />
+      }
     ],
     errorElement: <Error />,
   },
