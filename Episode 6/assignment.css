@@ -279,7 +279,7 @@ body {
   margin-right: 2px;
 }
 
-.shimmer-card-container > .left > .shimmer-value{
+.shimmer-card-container > .left > .shimmer-value {
   height: 170px;
   width: 200px;
   border-radius: 10px;
@@ -288,7 +288,7 @@ body {
   margin-right: 20px;
 }
 
- .shimmer-value {
+.shimmer-value {
   animation-duration: 2.2s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
@@ -308,4 +308,33 @@ body {
   100% {
     background-position: 1200px 0;
   }
+}
+
+/* Restro menu cards */
+.restraunt-menu-main-contrainer-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.restraunt-menu-main-contrainer > .left {
+  border: 2px solid black;
+  margin: 20px 100px 0px 400px;
+  height: 150px;
+  width: 700px;
+  padding: 15px 5px 5px 10px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+}
+
+.recommended-menu .recommended-headinng-container {
+  background-color: #f0f0f0;
+  margin: 50px 400px 50px 400px;
+  padding: 20px;
+  display: flex;
+  align-content: center;
+}
+.recommended-menu .recommended-headinng-container .veg-filter {
+  margin-left: 100px;
+  padding: 2px;
+  font-size: 15px;
 }

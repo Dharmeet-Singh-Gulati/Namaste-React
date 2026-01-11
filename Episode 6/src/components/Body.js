@@ -23,12 +23,12 @@ const Body = () => {
   }
 
   if (listOfRestraunts.length === 0) {
-    return <Shimmer />
+    return <Shimmer />;
   }
 
   return (
     <div className="body-container">
-      <div className="search">Search</div>
+      <div className="search">Only Search by name available</div>
       <div className="filter">
         <form
           onSubmit={(e) => {
