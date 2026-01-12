@@ -3,9 +3,11 @@ import { resList } from "../utils/mockObj";
 import Shimmer from "./Shimmer";
 import { star_svg } from "../utils/constants";
 
-const RestrauntMenu = () => {
+const RestrauntMenu = (props) => {
+  const { restrauntId } = props;
   const [restrauntList, setRestruntList] = useState([]);
   const [filterList, setFilterList] = useState([[]]);
+  const [vegFilter, setVegFilter] = useState("Veg & Non-Veg");
   useEffect(() => {
     fetchData();
   }, []);
@@ -29,16 +31,24 @@ const RestrauntMenu = () => {
         <button
           className="veg-filter"
           onClick={() => {
-            const filteredList = restrauntList.filter((restro) => {
-              console.log(restro?.card?.info?.isVeg);
+            let isVegFilter = () => {
+              const filteredList = restrauntList.filter((restro) => {
+                console.log(restro?.card?.info?.isVeg);
+                return restro?.card?.info?.isVeg === 1;
+              });
+              setFilterList(filteredList);
+              setVegFilter("Veg");
+            };
 
-              return restro?.card?.info?.isVeg === 1;
-            });
-            setFilterList(filteredList);
+            let isNoVegFilter = () => {
+              setFilterList(restrauntList);
+              setVegFilter("Veg & Non-Veg");
+            };
+
+            vegFilter === "Veg & Non-Veg" ? isVegFilter() : isNoVegFilter();
           }}
-
-          >
-          Veg only
+        >
+          {vegFilter}
         </button>
       </div>
       <div className="restraunt-menu-main-contrainer-body">
@@ -85,6 +95,3 @@ const RestrauntMenu = () => {
 };
 
 export default RestrauntMenu;
-// name
-// cusinie
-// menu
