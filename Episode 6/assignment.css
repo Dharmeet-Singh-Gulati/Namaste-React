@@ -338,3 +338,11 @@ body {
   padding: 2px;
   font-size: 15px;
 }
+
+/* About section */
+.user-card {
+  border: solid black 2px;
+  padding: 20px 50px;
+  width: 500px;
+  margin: 100px 50px;
+}
