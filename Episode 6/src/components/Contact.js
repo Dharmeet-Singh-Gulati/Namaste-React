@@ -5,7 +5,11 @@ const Contact = () => {
   let [count2, setCount2] = useState(1);
 
   useEffect(() => {
+    let timer = setInterval(() => {
+      console.log("Namaste Op");
+    }, 1000);
     console.log(count, count2);
+    return "helloWorld";
   }, [count, count2]);
 
   let update = () => {

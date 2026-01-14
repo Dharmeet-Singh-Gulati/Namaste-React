@@ -28,7 +28,66 @@ class About extends React.Component {
           <h3>Name is: {this.props.name}</h3>
           <h3>Location is: {this.props.location}</h3>
         </div>
+        <User />
       </div>
+    );
+  }
+}
+
+class User extends React.Component {
+  constructor() {
+    super();
+    console.log("Parent constructor");
+  }
+
+  componentDidMount() {
+    console.log("Parent ComponentDidMount");
+  }
+
+  render() {
+    return (
+      <>
+        <h1>Parent</h1>
+        <Child />
+      </>
+    );
+  }
+}
+
+class Child extends React.Component {
+  constructor() {
+    super();
+    console.log("Child 1 constructor");
+  }
+
+  componentDidMount() {
+    console.log("Child 1 ComponentDidMount");
+  }
+
+  render() {
+    return (
+      <>
+        <h2>Child 1</h2>
+        <GrandChild />
+      </>
+    );
+  }
+}
+class GrandChild extends React.Component {
+  constructor() {
+    super();
+    console.log("GrandChild constructor");
+  }
+
+  componentDidMount() {
+    console.log("GrandChild ComponentDidMount");
+  }
+
+  render() {
+    return (
+      <>
+        <h2>GrandChild</h2>
+      </>
     );
   }
 }

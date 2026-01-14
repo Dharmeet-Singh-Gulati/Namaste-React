@@ -33,7 +33,6 @@ const RestrauntMenu = (props) => {
           onClick={() => {
             let isVegFilter = () => {
               const filteredList = restrauntList.filter((restro) => {
-                console.log(restro?.card?.info?.isVeg);
                 return restro?.card?.info?.isVeg === 1;
               });
               setFilterList(filteredList);

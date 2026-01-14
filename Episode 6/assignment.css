@@ -316,6 +316,10 @@ body {
   flex-direction: column;
 }
 
+.restraunt-menu-main-contrainer-body:last-child {
+  padding-bottom: 50px;
+}
+
 .restraunt-menu-main-contrainer > .left {
   border: 2px solid black;
   margin: 20px 100px 0px 400px;
