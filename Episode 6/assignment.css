@@ -203,9 +203,16 @@ body {
   width: 200px;
   flex-shrink: 0;
 }
+
 .lower-left > img {
   width: 20px;
 }
+
+.res-card-container > .lower-section > .lower-left > a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .meal-name {
   color: #2c2c2c;
 }

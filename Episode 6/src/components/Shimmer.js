@@ -8,7 +8,6 @@ const Shimmer = () => {
       <ShimmerCard />
       <ShimmerCard />
       <ShimmerCard />
-      {console.log("Hello from Shimmer")}
     </div>
   );
 };

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const LOGO = new URL("../../assets/logo.jpg", import.meta.url);
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
-  console.log("Header rendered");
 
   return (
     <div className="header-container">

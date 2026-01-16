@@ -5,7 +5,7 @@ import { star_svg } from "../utils/constants";
 
 const RestrauntMenu = (props) => {
   const { restrauntId } = props;
-  const [restrauntList, setRestruntList] = useState([]);
+  const [restrauntList, setRestrauntList] = useState([]);
   const [filterList, setFilterList] = useState([[]]);
   const [vegFilter, setVegFilter] = useState("Veg & Non-Veg");
   useEffect(() => {
@@ -16,7 +16,7 @@ const RestrauntMenu = (props) => {
     let data =
       resList.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
         .itemCards;
-    setRestruntList(data);
+    setRestrauntList(data);
     setFilterList(data);
   }
 

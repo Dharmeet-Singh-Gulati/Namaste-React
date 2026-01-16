@@ -4,8 +4,8 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listOfRestraunts, setListOfRestraunts] = useState([]);
-  const [searchText, setSearchText] = useState("");
   const [fiilterList, setFilterList] = useState([]);
+  const [searchText, setSearchText] = useState("");
   useEffect(() => {
     fetchData();
   }, []);
@@ -58,7 +58,7 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             let filteredList = listOfRestraunts.filter((resObj) => {
-              return resObj?.card?.card?.restaurant?.info?.avgRating > 4.5;
+              return resObj?.card?.card?.restaurant?.info?.avgRating > 4;
             });
             setFilterList(filteredList);
           }}

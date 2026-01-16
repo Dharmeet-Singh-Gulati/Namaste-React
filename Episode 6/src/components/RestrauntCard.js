@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { star_svg, VEG_SYMBOL_URL } from "../utils/constants";
 import { CDN_URL } from "../utils/constants";
 import { star_svg } from "../utils/constants";
-import RestrauntMenu from "./RestrauntMenu";
+import { CHECK_OUT_SVG } from "../utils/constants";
 
 const VEGSYMBOL = VEG_SYMBOL_URL;
 const ResCard = (props) => {
@@ -30,20 +30,7 @@ const ResCard = (props) => {
             </h4>
           </div>
         </div>
-        <div className="upper-right">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            fill="currentColor"
-          >
-            <path
-              d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-              fill="#424141"
-            ></path>
-          </svg>
-        </div>
+        <div className="upper-right">{CHECK_OUT_SVG}</div>
       </div>
       <div className="separator">
         <pre> ..................................................</pre>

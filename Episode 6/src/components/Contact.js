@@ -9,7 +9,9 @@ const Contact = () => {
       console.log("Namaste Op");
     }, 1000);
     console.log(count, count2);
-    return "helloWorld";
+    return () => {
+      clearInterval(timer);
+    };
   }, [count, count2]);
 
   let update = () => {
