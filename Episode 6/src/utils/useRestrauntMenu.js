@@ -4,10 +4,11 @@ import { resList } from "../utils/mockObj";
 const useRestrauntMenu = () => {
   const [restrauntList, setRestrauntList] = useState([]);
   const [filterList, setFilterList] = useState([]);
+  const [vegFilter, setVegFilter] = useState(false);
 
   useEffect(() => {
     fetchData();
-  });
+  }, []);
 
   let fetchData = () => {
     let data =
@@ -17,7 +18,20 @@ const useRestrauntMenu = () => {
     setFilterList(data);
   };
 
-  return [restrauntList, filterList];
+  let isVegFilter = () => {
+    if (vegFilter === false) {
+      let filteredList = filterList.filter((restro) => {
+        return restro?.card?.info?.isVeg === 1;
+      });
+
+      setFilterList(filteredList);
+    } else {
+      setFilterList(restrauntList);
+    }
+    setVegFilter(!vegFilter);
+  };
+
+  return [restrauntList, filterList, isVegFilter, vegFilter];
 };
 
 export default useRestrauntMenu;

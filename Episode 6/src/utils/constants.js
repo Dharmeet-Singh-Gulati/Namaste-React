@@ -1,3 +1,6 @@
+export const SWIGGY_API =
+  "https://www.swiggy.com/dapi/restaurants/search/v3?lat=28.65420&lng=77.23730&str=Burger&trackingId=30bc26f7-2fbe-70e5-a9b5-4a8aa938c89f&submitAction=ENTER&queryUniqueId=4cb869c2-ac06-e0c4-4eb9-6915a405c46b";
+
 export const VEG_SYMBOL_URL = new URL(
   "../../assets/veg-symbol.png",
   import.meta.url

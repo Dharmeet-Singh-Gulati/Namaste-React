@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
-import { resList } from "../utils/mockObj";
 import Shimmer from "./Shimmer";
 import { star_svg } from "../utils/constants";
+import useRestrauntMenu from "../utils/useRestrauntMenu";
 
 const RestrauntMenu = (props) => {
   const { restrauntId } = props;
-  const [restrauntList, setRestrauntList] = useState([]);
-  const [filterList, setFilterList] = useState([[]]);
-  const [vegFilter, setVegFilter] = useState("Veg & Non-Veg");
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  async function fetchData() {
-    let data =
-      resList.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
-        .itemCards;
-    setRestrauntList(data);
-    setFilterList(data);
-  }
+  const [restrauntList, filterList, isVegFilter, vegFilter] =
+    useRestrauntMenu();
 
   if (restrauntList.length === 0) {
     return <Shimmer />;
@@ -31,23 +18,10 @@ const RestrauntMenu = (props) => {
         <button
           className="veg-filter"
           onClick={() => {
-            let isVegFilter = () => {
-              const filteredList = restrauntList.filter((restro) => {
-                return restro?.card?.info?.isVeg === 1;
-              });
-              setFilterList(filteredList);
-              setVegFilter("Veg");
-            };
-
-            let isNoVegFilter = () => {
-              setFilterList(restrauntList);
-              setVegFilter("Veg & Non-Veg");
-            };
-
-            vegFilter === "Veg & Non-Veg" ? isVegFilter() : isNoVegFilter();
+            isVegFilter();
           }}
         >
-          {vegFilter}
+          {vegFilter ? "Veg" : "Veg & Non Veg"}
         </button>
       </div>
       <div className="restraunt-menu-main-contrainer-body">
@@ -58,7 +32,6 @@ const RestrauntMenu = (props) => {
             description,
             finalPrice,
             price: defaultPrice,
-            isVeg,
           } = restro?.card?.info;
           const { rating } = restro?.card?.info?.ratings?.aggregatedRating;
           const priceDecide = () => {

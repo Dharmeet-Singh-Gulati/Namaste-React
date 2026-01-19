@@ -21,6 +21,7 @@ const Contact = () => {
 
   return (
     <div className="contact-container">
+      <h1>Lazy Loading is being used here</h1>
       <h1>Contact us</h1>
       <h3>Knowledge in progress</h3>
       <h1>Count is {count} </h1>

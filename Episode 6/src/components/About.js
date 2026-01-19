@@ -1,4 +1,5 @@
 import React from "react";
+import Hello from "./Hello";
 class About extends React.Component {
   constructor(props) {
     super(props);
@@ -9,26 +10,29 @@ class About extends React.Component {
   }
   render() {
     return (
-      <div className="main-container">
-        <h1>About</h1>
-        <h2>Learning about React</h2>
-        <div className="user-card">
-          <h2>Count is: {this.state.count}</h2>
-          <h2>Count2 is: {this.state.count2}</h2>
-          <button
-            onClick={() => {
-              this.setState({
-                count: ++this.state.count,
-                count2: ++this.state.count,
-              });
-            }}
-          >
-            Count ++
-          </button>
-          <h3>Name is: {this.props.name}</h3>
-          <h3>Location is: {this.props.location}</h3>
+      <div>
+        <div className="main-container">
+          <h1>About</h1>
+          <h2>Learning about React</h2>
+          <div className="user-card">
+            <h2>Count is: {this.state.count}</h2>
+            <h2>Count2 is: {this.state.count2}</h2>
+            <button
+              onClick={() => {
+                this.setState({
+                  count: ++this.state.count,
+                  count2: ++this.state.count,
+                });
+              }}
+            >
+              Count ++
+            </button>
+            <h3>Name is: {this.props.name}</h3>
+            <h3>Location is: {this.props.location}</h3>
+          </div>
+          <User />
         </div>
-        <User />
+        <Hello />
       </div>
     );
   }
@@ -47,6 +51,7 @@ class User extends React.Component {
   render() {
     return (
       <>
+        {console.log("Parent Render")}
         <h1>Parent</h1>
         <Child />
       </>
@@ -67,6 +72,7 @@ class Child extends React.Component {
   render() {
     return (
       <>
+        {console.log("Child Render")}
         <h2>Child 1</h2>
         <GrandChild />
       </>
@@ -86,6 +92,7 @@ class GrandChild extends React.Component {
   render() {
     return (
       <>
+        {console.log("GrandChild Render")}
         <h2>GrandChild</h2>
       </>
     );
