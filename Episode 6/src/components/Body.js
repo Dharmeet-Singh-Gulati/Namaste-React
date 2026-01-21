@@ -19,7 +19,7 @@ const Body = () => {
   if (!isOnline) {
     return (
       <>
-      {console.log("Me called")}
+        {console.log("Me called")}
         <h1>You are Offline</h1>
       </>
     );
