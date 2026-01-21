@@ -8,25 +8,25 @@ const Header = () => {
   const isOnline = useOnline();
 
   return (
-    <div className="header-container">
-      <div className="logo-container">
-        <img className="logo" src={LOGO.href} />
+    <div className="bg-pink-200 flex justify-between sticky">
+      <div className="logo-container w-20 p-2 rounded-full bg-orange-400 my-1">
+        <img className="logo rounded-full" src={LOGO.href} />
       </div>
-      <div className="nav-items-container">
-        <ul className="nav-items">
-          <li>Online Status: {isOnline ? "🟢" : "🔴"}</li>
-          <li>
+      <div className="nav-items-container flex items-center ">
+        <ul className="flex justify-center mr-20">
+          <li className="mr-5">Online Status: {isOnline ? "🟢" : "🔴"}</li>
+          <li className="mr-5">
             <Link to={"/"}>Home</Link>
           </li>
-          <li>
+          <li className="mr-5">
             <Link to={"/about"}>About Us</Link>
           </li>
-          <li>
+          <li className="mr-5">
             <Link to={"/contact"}>Contact Us</Link>
           </li>
-          <li>Cart</li>
+          <li className="mr-10">Cart</li>
           <button
-            className="login-btn"
+            className="login-btn border-2 border-solid px-5 rounded-lg bg-pink-50 hover:bg-pink-75 ease-in transition-all duration-200 cursor-pointer"
             onClick={() => {
               loginBtn === "Login"
                 ? setLoginBtn("Logout")

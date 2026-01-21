@@ -18,45 +18,56 @@ const ResCard = (props) => {
   const { imageId } = resData?.card?.card?.info;
 
   return (
-    <div className="res-card-container">
-      <div className="upper-section">
-        <div className="upper-left">
-          <h4 className="res-name">By {restroName}</h4>
-          <div className="rating-eta">
-            <span>{star_svg}</span>
-            <h4 className="rating">{avgRating}</h4>
-            <h4 className="eta">
+    <div className="res-card-container border-2 border-black h-75 w-120 p-2.5 bg-white rounded-2xl ">
+      <div className="upper-section flex mt-0.5 mx-1 items-center justify-between">
+        <div className="upper-left flex-col relative py-0.5 rounded-[10px]">
+          <h4 className="res-name text-[#3f3f3f]">By {restroName}</h4>
+          <div className="rating-eta items-center mt-1">
+            <span className="absolute bottom-1">{star_svg}</span>
+            <h4 className="rating mr-5 pl-5 inline-block text-[#5b5a5a]">
+              {avgRating}
+            </h4>
+            <h4 className="eta inline-block text-[#5b5a5a]">
               {minDeliveryTime} - {maxDeliveryTime} MINS
             </h4>
           </div>
         </div>
         <div className="upper-right">{CHECK_OUT_SVG}</div>
       </div>
-      <div className="separator">
+      <div className="separator mb-4">
         <pre> ..................................................</pre>
       </div>
-      <div className="lower-section">
-        <div className="lower-left">
-          <img src={VEGSYMBOL}></img>
-          <Link to={"restraunts/123"}>
-            <h3 className="meal-name">{mealName}</h3>{" "}
+      <div className="lower-section flex pl-1">
+        <div className="lower-left flex-col gap-1 w-50 shrink-0">
+          <img src={VEGSYMBOL} className="w-5"></img>
+          <Link className="decoration-0 cursor-pointer" to={"restraunts/123"}>
+            <h3 className="meal-name text-[#2c2c2c]">{mealName}</h3>{" "}
           </Link>
           <h4 className="price">₹ {mealPrice / 100}</h4>
-          <h4 className="more-details-btn">More Details</h4>
+          <h4 className="more-details-btn w-27.5 border-solid border pl-4 rounded-lg text-[#5b5a5a]">
+            More Details
+          </h4>
         </div>
         <div className="lower-right">
-          <div className="meal-wrapper">
-            <div className="meal-logo">
+          <div className="meal-wrapper relative">
+            <div className="meal-logo flex justify-center overflow-hidden h-42.5 w-43.75 rounded-lg">
               <img
-                className="res-logo"
+                className="res-logo h-43.75 "
                 alt="res-logo"
                 src={CDN_URL + imageId}
               ></img>
 
-              <h2 className="add-btn">Add</h2>
+              <h2
+                className="add-btn absolute text-green-600 -bottom-1.75 bg-white py-0.5 px-8 
+              border border-[#ddd] transition-all duration-200 hover:bg-[#f0eeee] hover:text-[#099F09] cursor-pointer"
+              >
+                Add
+              </h2>
             </div>
           </div>
-          <h5 className="customisable-banner">Customisable</h5>
+          <h5 className="customisable-banner mb-1  pb-0 pl-12 text-[#5b5a5a]">
+            Customisable
+          </h5>
         </div>
       </div>
     </div>
