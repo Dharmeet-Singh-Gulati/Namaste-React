@@ -1,4 +1,4 @@
-import ResCard from "./RestrauntCard";
+import ResCard, { withPromotedLabel } from "./RestrauntCard";
 import Shimmer from "./Shimmer";
 import useBodyLogic from "../utils/useBodyLogic";
 import useOnline from "../utils/useOnline";
@@ -28,6 +28,9 @@ const Body = () => {
   if (listOfRestraunts.length === 0) {
     return <Shimmer />;
   }
+
+  let ResCardPromoted = withPromotedLabel(ResCard);
+  console.log(ResCardPromoted);
 
   return (
     <div className="body-container my-5 mx-30 flex flex-col">
@@ -73,7 +76,12 @@ const Body = () => {
       </div>
       <div className="card-container my-10 flex  ml-32.5 flex-wrap pb-12 gap-5">
         {filterList.map((resObj) => {
-          return (
+          return resObj?.card?.card?.restaurant?.info?.promoted ? (
+            <ResCardPromoted
+              key={resObj?.card?.card?.info?.id}
+              resData={resObj}
+            />
+          ) : (
             <ResCard key={resObj?.card?.card?.info?.id} resData={resObj} />
           );
         })}

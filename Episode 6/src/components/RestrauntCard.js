@@ -16,6 +16,7 @@ const ResCard = (props) => {
   const { minDeliveryTime, maxDeliveryTime } =
     resData?.card?.card?.restaurant?.info?.sla;
   const { imageId } = resData?.card?.card?.info;
+  const { promoted } = resData?.card?.card?.restaurant?.info;
 
   return (
     <div className="res-card-container border-2 border-black h-75 w-120 p-2.5 bg-white rounded-2xl ">
@@ -70,6 +71,18 @@ const ResCard = (props) => {
           </h5>
         </div>
       </div>
+      {console.log(promoted)}
+    </div>
+  );
+};
+
+export const withPromotedLabel = (ResCard) => {
+  return (props) => (
+    <div className="relative">
+      <ResCard {...props} />
+      <label className="absolute bg-black text-white rounded-lg p-2 left-52 top-25">
+        Promoted
+      </label>
     </div>
   );
 };
