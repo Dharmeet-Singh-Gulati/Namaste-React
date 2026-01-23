@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { resList } from "../utils/mockObj";
+import { resList } from "../utils/mockMenuData";
 
 const useRestrauntMenu = () => {
-  const [restrauntList, setRestrauntList] = useState([]);
+  const [restaurantList, setRestaurantList] = useState([]);
   const [filterList, setFilterList] = useState([]);
   const [vegFilter, setVegFilter] = useState(false);
 
@@ -12,9 +12,12 @@ const useRestrauntMenu = () => {
 
   let fetchData = () => {
     let data =
-      resList.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
-        .itemCards;
-    setRestrauntList(data);
+      resList.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter(
+        (resObj) =>
+          resObj.card.card["@type"] ===
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+      );
+    setRestaurantList(data);
     setFilterList(data);
   };
 
@@ -26,14 +29,12 @@ const useRestrauntMenu = () => {
 
       setFilterList(filteredList);
     } else {
-      setFilterList(restrauntList);
+      setFilterList(restaurantList);
     }
     setVegFilter(!vegFilter);
   };
 
-  return [restrauntList, filterList, isVegFilter, vegFilter];
+  return [restaurantList, filterList, isVegFilter, vegFilter];
 };
 
 export default useRestrauntMenu;
-
-// fix BODY and Restraunt and add Online and Offline Feature

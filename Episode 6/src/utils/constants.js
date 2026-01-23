@@ -1,15 +1,23 @@
 export const SWIGGY_API =
   "https://www.swiggy.com/dapi/restaurants/search/v3?lat=28.65420&lng=77.23730&str=Burger&trackingId=30bc26f7-2fbe-70e5-a9b5-4a8aa938c89f&submitAction=ENTER&queryUniqueId=4cb869c2-ac06-e0c4-4eb9-6915a405c46b";
 
-export const VEG_SYMBOL_URL = new URL(
-  "../../assets/veg-symbol.png",
-  import.meta.url
+export const SWIGGY_MENU_API =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.65420&lng=77.23730&restaurantId=";
+
+export const VEG_SYMBOL = new URL(
+  "../utils/assets/veg-symbol.png",
+  import.meta.url,
+);
+
+export const NON_VEG_SYMBOL = new URL(
+  "../utils/assets/non-veg-symbol.png",
+  import.meta.url,
 );
 
 export const CDN_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 
-export const star_svg = (
+export const STAR_SVG = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 640 640"

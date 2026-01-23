@@ -14,7 +14,9 @@ const AppLayout = () => {
   return (
     <div className="app-layout">
       <Header />
-      <Outlet />
+      <div className="pt-20">
+        <Outlet />
+      </div>
     </div>
   );
 };
@@ -41,7 +43,7 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: "/restraunts/:resid",
+        path: "/restraunts/:resId",
         element: <RestrauntMenu />,
       },
     ],

@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 
-const LOGO = new URL("../../assets/logo.jpg", import.meta.url);
+const LOGO = new URL("../utils/assets/logo.jpg", import.meta.url);
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
   const isOnline = useOnline();
 
   return (
-    <div className="bg-pink-200 flex justify-between sticky">
-      <div className="logo-container w-20 p-2 rounded-full bg-orange-400 my-1">
+    <div className="bg-pink-200 flex justify-between fixed z-50 mt-0 w-full">
+      <div className="logo-container w-20 ml-2 p-2 rounded-full bg-orange-400 my-1">
         <img className="logo rounded-full" src={LOGO.href} />
       </div>
       <div className="nav-items-container flex items-center ">
