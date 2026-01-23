@@ -1,37 +1,32 @@
 import { useState } from "react";
 import RestaurantMenuItem from "./RestrauntMenuItem";
 
-const RestaurantMenuItemCard = ({ resObj }) => {
-  const [showItemCard, setShowItemCard] = useState(false);
+const RestaurantMenuItemCard = ({
+  resObj,
+  setShowItemCard,
+  index,
+  indexCheck,
+}) => {
   return (
     <div>
       <div className="w-6/12 mx-auto h-3 mt-4 bg-gray-200"></div>
       <div className="w-6/12 mx-auto my-3 flex-col">
-        <div className="flex justify-between px-2 py-1 items-center bg-white ">
-          <span
-            className="font-bold text-black text-lg cursor-pointer"
-            onClick={() => {
-              setShowItemCard(!showItemCard);
-            }}
-          >
+        <div
+          className="flex justify-between px-2 py-1 items-center bg-white "
+          onClick={() => {
+            setShowItemCard(index);
+          }}
+        >
+          <span className="font-bold text-black text-lg cursor-pointer">
             {resObj.card.card.title} ({resObj.card.card.itemCards.length})
           </span>
-          <span
-            className="cursor-pointer"
-            onClick={() => {
-              setShowItemCard(!showItemCard);
-            }}
-          >
-            ⬇
-          </span>
+          <span className="cursor-pointer">⬇</span>
         </div>
-        {showItemCard ? (
+        {index == indexCheck && (
           <RestaurantMenuItem
             key={resObj.card.card.title}
             itemList={resObj.card.card.itemCards}
           />
-        ) : (
-          <></>
         )}
       </div>
     </div>
