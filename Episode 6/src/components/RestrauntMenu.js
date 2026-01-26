@@ -35,4 +35,3 @@ const RestrauntMenu = () => {
 };
 
 export default RestrauntMenu;
-// restaurantList

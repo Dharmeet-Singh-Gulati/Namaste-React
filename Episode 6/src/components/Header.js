@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import UserInfo from "../utils/UserInfo";
 
 const LOGO = new URL("../utils/assets/logo.jpg", import.meta.url);
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
   const isOnline = useOnline();
+  const userInfo = useContext(UserInfo);
 
   return (
     <div className="bg-pink-200 flex justify-between fixed z-50 mt-0 w-full">
@@ -34,7 +36,9 @@ const Header = () => {
             }}
           >
             {loginBtn}
+            {console.log(userInfo)}
           </button>
+          <li className="mr-10">{userInfo.name}</li>
         </ul>
       </div>
     </div>

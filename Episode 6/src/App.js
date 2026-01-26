@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "../index.css";
 import Header from "./components/Header";
@@ -7,13 +7,16 @@ import About from "./components/About";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestrauntMenu from "./components/RestrauntMenu";
+import UserInfo from "./utils/UserInfo";
 
 const Contact = lazy(() => import("./components/Contact"));
 
 const AppLayout = () => {
   return (
     <div className="app-layout">
-      <Header />
+      <UserInfo.Provider value={{ name: "sidak", loggedIn: true }}>
+        <Header />
+      </UserInfo.Provider>
       <div className="pt-20">
         <Outlet />
       </div>
